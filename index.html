@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUC :: Dashboard</title>
+<style>
+  @font-face {
+    font-family: 'Departure';
+    src: url('DepartureMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+
+  :root {
+    --bg: #3C3C3C;
+    --fg: #FFFFFF;
+    --success: #00FF66;
+    --failure: #FF4444;
+    --running: #FFAA00;
+    --border: #555555;
+    --surface: #2A2A2A;
+    --muted: #888888;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Departure', monospace;
+    -webkit-font-smoothing: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  header h1 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 520px;
+  }
+
+  @media (min-width: 600px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--fg);
+    transition: border-color 0.15s;
+  }
+
+  .card:hover {
+    border-color: var(--fg);
+  }
+
+  .card-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  .card-desc {
+    font-size: 0.7rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+  }
+
+  .dot-ok { background: var(--success); }
+
+  .port {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.625rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .status-text {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NUC</h1>
+  <p>Services Dashboard</p>
+</header>
+
+<div class="grid">
+  <a class="card" href="http://nuc.jackrose.website:3001">
+    <div class="card-name">Honcho Memory</div>
+    <div class="card-desc">Peer cards, conclusions, deriver queue. What Honcho has learned.</div>
+    <div class="card-meta">
+      <span class="dot dot-ok"></span>
+      <span class="port">:3001</span>
+      <span class="status-text" style="color:var(--success)">LIVE</span>
+    </div>
+  </a>
+
+  <a class="card" href="http://nuc.jackrose.website:3002">
+    <div class="card-name">Cron Monitor</div>
+    <div class="card-desc">Hermes cron jobs — schedules, runs, failures.</div>
+    <div class="card-meta">
+      <span class="dot dot-ok"></span>
+      <span class="port">:3002</span>
+      <span class="status-text" style="color:var(--success)">LIVE</span>
+    </div>
+  </a>
+</div>
+
+<footer>
+  nuc.jackrose.website &nbsp;·&nbsp; Cloudflare Mesh &nbsp;·&nbsp; Intel NUC
+</footer>
+
+</body>
+</html>
